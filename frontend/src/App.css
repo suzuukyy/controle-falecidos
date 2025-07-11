@@ -1,0 +1,415 @@
+body {
+  margin: 0;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #1d2330 0%, #3c4a60 100%);
+  min-height: 100vh;
+  color: #e5eaff;
+}
+
+.app-container {
+  background: rgba(40, 44, 60, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #000a, 0 1.5px 0 #00eaff inset;
+  max-width: 700px;
+  margin: 48px auto;
+  padding: 36px 32px 32px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo {
+  width: 110px;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 6px #00eaffcc);
+}
+
+h1 {
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  color: #00eaff;
+  text-shadow: 0 2px 18px #00eaff55, 0 1px 0 #222;
+  margin-bottom: 8px;
+}
+
+.titulo {
+  font-size: 1.2rem;
+  color: #e5eaff;
+  margin-bottom: 28px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+input {
+  background: #23283b;
+  border: 1.5px solid #00eaff55;
+  border-radius: 6px;
+  color: #e5eaff;
+  padding: 8px 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+input:focus {
+  border-color: #00eaff;
+}
+
+button {
+  background: linear-gradient(90deg, #00eaff 0%, #005d7a 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #00eaff22;
+  transition: filter 0.2s, background 0.2s;
+}
+button:disabled {
+  filter: grayscale(0.7);
+  cursor: not-allowed;
+}
+button:hover:not(:disabled) {
+  filter: brightness(1.1) drop-shadow(0 0 6px #00eaff66);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(30, 36, 50, 0.98);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 12px;
+  box-shadow: 0 2px 12px #00eaff11;
+}
+th, td {
+  padding: 12px 8px;
+  text-align: left;
+}
+th {
+  background: #23283b;
+  color: #00eaff;
+  font-size: 1.08rem;
+  border-bottom: 2px solid #00eaff44;
+}
+td {
+  border-bottom: 1px solid #23283b;
+}
+tr:last-child td {
+  border-bottom: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #222;
+}
+::-webkit-scrollbar-thumb {
+  background: #00eaff55;
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .app-container {
+    max-width: 100vw;
+    padding: 10px 2vw;
+    margin: 12px 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  h1 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  .logo {
+    width: 60px;
+    margin: 0 auto 12px auto;
+    display: block;
+  }
+  .lista-falecidos {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-falecido {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding: 18px 8px;
+    margin: 10px 0;
+  }
+  input, select, button {
+    font-size: 1.1rem;
+    padding: 12px 10px;
+  }
+  .modal-form {
+    width: 98vw !important;
+    max-width: 380px !important;
+    padding: 16px 6vw;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    font-size: 0.98rem;
+  }
+  th, td {
+    min-width: 110px;
+    padding: 9px 4px;
+    font-size: 0.97rem;
+  }
+  .btn-cadastrar, .btn-acao {
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    padding: 13px 0;
+  }
+}
+
+
+.acoes-inline {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .acoes-inline {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .botoes-grupo, .grupo-botoes, .painel-botoes, .painel-controles {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100%;
+  }
+  button, .btn-cadastrar, .btn-acao {
+    width: 100%;
+    margin-bottom: 0;
+    box-sizing: border-box;
+  }
+}
+
+.btn-acao {
+  background: linear-gradient(90deg, #00eaff 0%, #005d7a 100%);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 15px;
+  font-size: 0.98rem;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 1px 8px #00eaff22;
+  transition: filter 0.2s, background 0.2s;
+  letter-spacing: 0.5px;
+  margin-bottom: 0;
+}
+.btn-acao:hover:not(:disabled) {
+  filter: brightness(1.13) drop-shadow(0 0 5px #00eaff99);
+}
+.btn-acao:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sucesso-msg {
+  background: #00eaff;
+  color: #131b29;
+  font-weight: bold;
+  border-radius: 9px;
+  padding: 12px 22px;
+  box-shadow: 0 2px 18px #00eaff33;
+  text-align: center;
+  margin: 0 auto 20px auto;
+  width: fit-content;
+  min-width: 180px;
+  font-size: 1.08rem;
+  letter-spacing: 1px;
+  animation: fadeInOut 1.8s linear;
+}
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-8px); }
+  12% { opacity: 1; transform: none; }
+  88% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+
+.btn-cadastrar {
+  background: linear-gradient(90deg, #00eaff 0%, #005d7a 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 26px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 2px 18px #00eaff33;
+  transition: filter 0.2s, background 0.2s;
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+.btn-cadastrar:hover {
+  filter: brightness(1.15) drop-shadow(0 0 8px #00eaff88);
+}
+
+.modal-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(20, 28, 40, 0.88);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-form {
+  background: #23283b;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px #00eaff33, 0 1.5px 0 #00eaff99 inset;
+  padding: 32px 28px 20px 28px;
+  min-width: 300px;
+  max-width: 96vw;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  animation: modalIn 0.25s cubic-bezier(.5,1.8,.5,1.2);
+}
+.modal-form h2 {
+  color: #00eaff;
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+}
+.modal-form input {
+  margin-bottom: 0;
+  font-size: 1.05rem;
+}
+.modal-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.modal-form .modal-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+@keyframes modalIn {
+  from { transform: translateY(-40px) scale(.95); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.etapas-timeline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 0 28px 0;
+  gap: 0;
+  position: relative;
+}
+.etapa-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1 1 0;
+  min-width: 90px;
+  z-index: 1;
+}
+.etapa-icone {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #151e2a;
+  border: 2.5px solid #00eaff88;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #00eaff;
+  margin-bottom: 8px;
+  box-shadow: 0 0 12px #00eaff33;
+  transition: border 0.2s, color 0.2s;
+}
+.etapa-ok {
+  border-color: #00eaff;
+  color: #00eaff;
+  background: linear-gradient(135deg, #00eaff33 40%, #23283b 100%);
+}
+.etapa-pendente {
+  border-color: #444d5d;
+  color: #888;
+  background: #23283b;
+}
+.etapa-info {
+  text-align: center;
+}
+.etapa-nome {
+  font-weight: 600;
+  color: #00eaff;
+  font-size: 1.08rem;
+  margin-bottom: 2px;
+}
+.etapa-status {
+  font-size: 0.98rem;
+  color: #e5eaff;
+}
+.etapa-data {
+  color: #00eaff;
+  font-size: 0.95rem;
+}
+.etapa-pendente-txt {
+  color: #888;
+  font-size: 0.96rem;
+}
+.etapa-linha {
+  position: absolute;
+  top: 19px;
+  left: 100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,#00eaff55 60%,#23283b 100%);
+  z-index: 0;
+  margin-left: -2px;
+}
+@media (max-width: 700px) {
+  .etapas-timeline {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .etapa-card {
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+    margin-bottom: 0;
+  }
+  .etapa-icone {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+  .etapa-linha {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg,#00eaff55 60%,#23283b 100%);
+    margin-left: 0;
+  }
+}
+
