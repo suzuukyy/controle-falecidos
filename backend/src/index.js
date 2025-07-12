@@ -5,6 +5,7 @@ import falecidosRouter from './routes/falecidos.js';
 import usuariosRouter from './routes/usuarios.js';
 import loginRouter from './routes/login.js';
 import logsRouter from './routes/logs.js';
+import carrosRouter from './routes/carros.js';
 import { initDb } from './db.js';
 import { initUsuarios } from './models/usuario.js';
 
@@ -21,6 +22,7 @@ app.use('/api/falecidos', falecidosRouter);
 app.use('/api/usuarios', usuariosRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/logs', logsRouter);
+app.use('/api/carros', carrosRouter);
 
 app.get('/', (req, res) => {
   res.send('API de Falecidos rodando!');

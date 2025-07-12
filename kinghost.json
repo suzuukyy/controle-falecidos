@@ -1,0 +1,7 @@
+{
+  "host": "ftp.kinghost.net",
+  "user": "jeeferson27@gmail.com",
+  "password": "Jaqueline232@",
+  "frontendPath": "/public_html",
+  "backendPath": "/node"
+}

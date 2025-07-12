@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "frontend/build"
+
+[build.environment]
+  NODE_VERSION = "18.16.0"
+
+[context.production.environment]
+  NODE_ENV = "production"
